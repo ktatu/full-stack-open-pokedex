@@ -4,7 +4,7 @@
 
 #exit 0
 
-echo "Hello from shell script"
+echo "Hello from shell script 2"
 
 exit 0 # exit status 1 means that the script "fails"
 
