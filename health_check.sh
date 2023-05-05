@@ -1,6 +1,6 @@
 #!/bin/bash
 
-response=$(curl --silent http://localhost:5000/health)
+response=$(curl --silent https://fullstack11.fly.dev/health)
 
 if [[ "$response" == *"ok"* ]]; then
   echo "Health check passed"
