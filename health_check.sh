@@ -1,8 +1,12 @@
 #!/bin/bash
 
-echo "works"
+#echo "works"
 
-exit 0
+#exit 0
+
+echo "Hello from shell script"
+
+exit 0 # exit status 1 means that the script "fails"
 
 #response=$(curl --silent https://fullstack11.fly.dev/health)
 
