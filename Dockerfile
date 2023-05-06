@@ -35,4 +35,4 @@ ENV PATH /root/.volta/bin:$PATH
 
 RUN apt-get update; apt install -y curl
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start-prod" ]
