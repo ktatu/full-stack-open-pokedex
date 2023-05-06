@@ -1,6 +1,6 @@
 #!/bin/bash
 
-response=$(curl --silent http://localhost:5000)
+response=$(curl --silent http://localhost:5000/health)
 
 if [[ "$response" == *"ok"* ]]; then
   echo "Health check passed"
