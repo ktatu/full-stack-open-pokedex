@@ -43,9 +43,3 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
-
-  [[services.script_checks]]
-    grace_period = "1s"
-    interval = "20s"
-    timeout = "2s"
-    command = "cd app && chmod +rwx health_check.sh && ./health_check.sh"
