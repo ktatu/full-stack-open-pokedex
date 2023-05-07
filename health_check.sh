@@ -1,5 +1,5 @@
 #!/bin/bash
 
-curl http://localhost:5000/health
+curl http://localhost:8080/health
 
 exit 0
