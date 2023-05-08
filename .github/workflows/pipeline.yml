@@ -43,21 +43,13 @@ jobs:
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-      - name: Discord success notification
-        if: success() && ${{ env.SKIP == 'false' }}
-        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
-        with:
-          severity: info
-          description: New version of pokedex deployed to ${{ vars.PRODUCTION_WEBSITE }} by ${{ github.actor }}
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          
-  env_test:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Print commits string
-        run: echo "${{ env.COMMITS_STRING }}"
-      - name: Print skip
-        run: echo "${{ env.SKIP }}"
+      #- name: Discord success notification
+      #  if: ${{ success() && env.SKIP == 'false' }}
+      #  uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
+      #  with:
+      #    severity: info
+      #    description: New version of pokedex deployed to ${{ vars.PRODUCTION_WEBSITE }} by ${{ github.actor }}
+      #    webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
     runs-on: ubuntu-20.04
