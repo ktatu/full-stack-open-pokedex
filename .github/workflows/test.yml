@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Repository variable test
-        run: echo "Repository variable is ${{ env.PRODUCTION_WEBSITE }}"
+        run: echo "Repository variable is ${{ vars.PRODUCTION_WEBSITE }}"
