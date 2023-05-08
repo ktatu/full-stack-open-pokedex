@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
   
 env:
-  COMMITS_STRING: ${{ join(${{ toJson(github.event.commits) }}) }}
-  SKIP: ${{ contains(env.COMMIT_STRING, '#skip') }}
+  COMMITS_STRING: join(${{ toJson(github.event.commits) }})
+  SKIP: contains(env.COMMIT_STRING, '#skip')
 
 jobs:
   a_test_job:
