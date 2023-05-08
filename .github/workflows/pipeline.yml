@@ -50,6 +50,14 @@ jobs:
           severity: info
           description: New version of pokedex deployed to ${{ vars.PRODUCTION_WEBSITE }} by ${{ github.actor }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          
+  env_test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print commits string
+        run: echo "${{ COMMITS_STRING }}"
+      - name: Print skip
+        run: echo "${{ env.SKIP }}"
 
   tag_release:
     runs-on: ubuntu-20.04
