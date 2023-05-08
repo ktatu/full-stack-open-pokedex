@@ -23,6 +23,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Print commits string
-        run: echo "${{ env.COMMITS_STRING }}"
+        run: echo "$COMMITS_STRING"
       - name: Print skip
-        run: echo "${{ env.SKIP }}"
+        run: echo "$SKIP"
