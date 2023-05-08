@@ -28,5 +28,5 @@ jobs:
       - name: Print skip
         run: echo "$SKIP"
       - name: Print Test
-        if: contains("Hello world", "llo")
+        if: contains('Hello world', 'llo')
         run: echo "Contained llo"
