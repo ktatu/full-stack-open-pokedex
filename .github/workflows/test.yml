@@ -6,6 +6,10 @@ on:
       - master
       
   workflow_dispatch:
+  
+env:
+  COMMITS_STRING: ${{ join(${{ toJson(github.event.commits) }}) }}
+  SKIP: ${{ contains(env.COMMIT_STRING, '#skip') }}
 
 jobs:
   a_test_job:
@@ -14,3 +18,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Repository variable test
         run: echo "Repository variable is ${{ vars.PRODUCTION_WEBSITE }}"
+        
+  env_test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print commits string
+        run: echo "${{ env.COMMITS_STRING }}"
+      - name: Print skip
+        run: echo "${{ env.SKIP }}"
