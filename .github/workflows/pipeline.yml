@@ -48,7 +48,7 @@ jobs:
         uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         with:
           severity: info
-          details: New version of pokedex deployed
+          description: New version of pokedex deployed to ${{ PRODUCTION_WEBSITE }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
