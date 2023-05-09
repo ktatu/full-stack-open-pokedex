@@ -11,10 +11,6 @@ on:
       
   workflow_dispatch:
   
-env:
-  COMMITS_STRING: join(${{ toJson(github.event.commits) }})
-  SKIP: contains($COMMITS_STRING, '#skip')
-  
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -38,8 +34,11 @@ jobs:
           command: npm run test:e2e
           start: npm run start-prod
           wait-on: http://localhost:8080
+      - name: Check commit messages for skip
+        if: contains(join(${{ toJson(github.event.commits) }}), '#skip')
+        run: echo 'SKIP=false' >> $GITHUB_ENV
       - name: Fly.io deploy
-        if: env.SKIP == 'false'
+        if: ${{ env.SKIP == 'false' }}
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
