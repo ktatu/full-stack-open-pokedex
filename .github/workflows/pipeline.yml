@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
   
 env:
-  SKIP: contains(join(toJson(github.event.commits)), '#skip')
+  SKIP: ${{ contains(join(toJson(github.event.commits)), '#skip') }}
   
 jobs:
   simple_deployment_pipeline:
