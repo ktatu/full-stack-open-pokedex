@@ -51,6 +51,13 @@ jobs:
           severity: info
           description: New version of pokedex deployed to ${{ vars.PRODUCTION_WEBSITE }} by ${{ github.actor }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Discord failure notification
+        if: ${{ failure() && github.event_name == 'push' }}
+        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
+        with:
+          severity: error
+          details: Failure in deployment pipeline
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
     runs-on: ubuntu-20.04
