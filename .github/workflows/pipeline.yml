@@ -39,7 +39,7 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:8080
       - name: Fly.io deploy
-        if: ${{ github.event_name == 'push' && env.SKIP == 'false' }}
+        if: ${{ env.SKIP == 'false' }}
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
