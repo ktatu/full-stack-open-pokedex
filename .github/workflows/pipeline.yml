@@ -35,7 +35,7 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:8080
       - name: Check commit messages for skip
-        if: contains(join(${{ toJson(github.event.commits) }}), '#skip')
+        if: contains(join(toJson(github.event.commits)), '#skip')
         run: echo 'SKIP=true' >> $GITHUB_ENV
       - name: Fly.io deploy
         if: success()
