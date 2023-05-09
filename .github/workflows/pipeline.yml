@@ -36,9 +36,9 @@ jobs:
           wait-on: http://localhost:8080
       - name: Check commit messages for skip
         if: contains(join(${{ toJson(github.event.commits) }}), '#skip')
-        run: echo 'SKIP=false' >> $GITHUB_ENV
+        run: echo 'SKIP=true' >> $GITHUB_ENV
       - name: Fly.io deploy
-        if: ${{ env.SKIP == 'false' }}
+        if: success()
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
