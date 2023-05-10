@@ -12,6 +12,6 @@ jobs:
   health_check:
     runs-on: ubuntu-20.04
     steps:
-      - uses: url-health-check-action@f3f7bd79e4a64218eea7caad72796a1443896aeb
+      - uses: jtalk/url-health-check-action@f3f7bd79e4a64218eea7caad72796a1443896aeb
         with:
           url: https://fullstack11.fly.dev/
