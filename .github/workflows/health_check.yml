@@ -3,6 +3,9 @@ name: Periodic health check of deployment
 on:
   schedule:
     - cron: '0 0 * * *'
+  push:
+    branches: [master]
+      
     
 jobs:
   health_check:
