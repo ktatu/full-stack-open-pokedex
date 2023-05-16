@@ -2,7 +2,7 @@
 
 This repository is used for the CI/CD module of the Full stack open course
 
-Fork the repository to complete course exercises
+Repository of the "create your own pipeline" exercise: https://github.com/ktatu/fullstack-11-20
 
 ## Commands
 
